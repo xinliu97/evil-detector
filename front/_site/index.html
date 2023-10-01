@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>front - Introduction</title>
+<title>Evil-detector - Introduction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./images/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -72,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">front</span>
+    <span class="navbar-title">Evil-detector</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -106,6 +107,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#topic-summary" id="toc-topic-summary" class="nav-link active" data-scroll-target="#topic-summary">Topic Summary</a></li>
+  <li><a href="#roadmap" id="toc-roadmap" class="nav-link" data-scroll-target="#roadmap">Roadmap:</a></li>
   <li><a href="#process" id="toc-process" class="nav-link" data-scroll-target="#process">Process</a></li>
   </ul>
 </nav>
@@ -130,25 +132,49 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="topic-summary" class="level3">
-<h3 class="anchored" data-anchor-id="topic-summary">Topic Summary</h3>
-<p>In this project I aim to develop a generalizable novel methodology for identifying website list in a target category. And I will use “danguage” as an example to demonstrate my methodology. Finally I will analyze the characteristics of dangerous websites via calsual inference.</p>
+<section id="topic-summary" class="level2">
+<h2 class="anchored" data-anchor-id="topic-summary">Topic Summary</h2>
+<p>In this project I aim to develop a generalizable novel methodology for identifying website list in a target category. And I will use “dangerous website” as an example to demonstrate my methodology. Finally I will analyze the characteristics of dangerous websites via calsual inference.</p>
 <p>To be more specific, I will answer the following questions in this project:</p>
-<ol type="1">
-<li><p>How to ascertain whether a website belongs to a specific website category without having a dataset? Not every classification comes with a “ground truth” available for our study. Therefore, I aim to develop a method to determine whether a website falls into a given category in the absence of “ground truth”.(i.e.&nbsp;Input: Category defination, website list. Output: Website which belongs to this category).</p>
-<ol start="2" type="1">
-<li>Case study: How to identify dangerous websites? I will use “dangerous websites” as an example to demonstrate my methodology. I will develop a method to identify dangerous websites and analyze the characteristics of dangerous websites via calsual inference(<strong>Not sure which method for this part</strong>).</li>
+<ul>
+<li><ol type="1">
+<li><strong><em>How to ascertain whether a website belongs to a specific website category without having a dataset?</em></strong> Not every classification comes with a “ground truth” available for our study. Therefore, I aim to develop a method to determine whether a website falls into a given category in the absence of “ground truth”.(i.e.&nbsp;Input: Category defination, website list. Output: Website which belongs to this category). We will use “dangerous website” as an example.</li>
 </ol></li>
-</ol>
-<p>In this projcet I aim to create a list of dangerous websites and conduct a feature analysis on the websites in this list. I want to determine what kinds of websites are more likely to be considered dangerous, what characteristics dangerous websites have, and observe the trackers and advertisements on these websites. I wish to understand how to identify dangerous websites and whether we can predict dangerous websites. I believe that dangerous websites are a collection of certain types of websites. Through this work, we could better identify dangerous websites. Zeng[^1] proposed how to identify a bad advertisement in 2021, which provided ideas for my work. Englehardt and others analyzed the security of popular websites in 2016[^2], but no one has analyzed a large scale of specific types of websites, so my work should be meaningful.</p>
+<li><ol start="2" type="1">
+<li><strong><em>Identifying and characterizing “dangerous” websites:</em></strong> What specifc kinds of content and tactics in website cause the websites dangerous? In other words, which ads do people dislike (or like)?</li>
+</ol></li>
+</ul>
 <p>This project’s contribution will be:</p>
 <ol type="1">
-<li><p>Develop a generalizable novel methodology for identifying website list in a target category.</p></li>
+<li><p>Develop a generalizable novel methodology for identifying website list in a target category without ground truth.</p></li>
 <li><p>Analyze the characteristics of dangerous websites via calsual inference.</p></li>
 </ol>
 </section>
-<section id="process" class="level3">
-<h3 class="anchored" data-anchor-id="process">Process</h3>
+<section id="roadmap" class="level2">
+<h2 class="anchored" data-anchor-id="roadmap">Roadmap:</h2>
+<ul>
+<li>Construct a website list which contains dangerous websites and non-dangerous websites.
+<ul>
+<li>Figure which feature is the most important for classify a website into a target category.(i.e.&nbsp;What feature can represent a website)
+<ul>
+<li>Collect website list (About 200,000 websites).</li>
+<li>Decide which feature is better, collect website features via crawler(Now about 30 features).</li>
+</ul></li>
+<li>Construct a website list without ground truth.(<strong>Core contribution</strong>)
+<ul>
+<li>Download some pre-trained model from Huggingface.</li>
+<li>Compare the performance of different models and choose the best one as the teacher model.</li>
+<li>Use the teacher-student model to train a student model.</li>
+<li>Use the student model’s proformance to evaluate the teacher model’s performance and fine-tune the teacher model.</li>
+<li>Use a well-known dataset (AD DataSet) to evaluate our model.</li>
+<li>Use the model to predict the website list.</li>
+</ul></li>
+</ul></li>
+<li>Identifying and characterizing “dangerous” websites: Initially I will use causal inference to analyze the characteristics of dangerous websites. Crawling the ad, tracker and script information of the website, and then use causal inference to analyze the characteristics of dangerous websites.(<strong><em>NEED TO READ MORE PAPER.</em></strong>)</li>
+</ul>
+</section>
+<section id="process" class="level2">
+<h2 class="anchored" data-anchor-id="process">Process</h2>
 <section id="collect-a-list-of-websites-and-the-data-we-want-to-use." class="level4">
 <h4 class="anchored" data-anchor-id="collect-a-list-of-websites-and-the-data-we-want-to-use.">1.Collect a list of websites and the data we want to use.</h4>
 <p>Now we use data from <a href="https://www.unb.ca/cic/datasets/url-2016.html">ISCX-URL2016</a></p>
@@ -259,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>For fetching the features above, we write a class <a href="../codes/01-data-gathering/WebScraper.py">WebScraper</a> to gethering those data.</p>
+<p>For fetching the features above, we write a class <a href="https://github.com/xinliu97/evil-detector/blob/main/evil-detector-python/WebScraper.py">WebScraper</a> to gethering those data.</p>
 
 
 </section>
