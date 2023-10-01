@@ -2,14 +2,25 @@ project:
   type: website
 
 website:
+  page-footer: 
+    left: "Copyright 2023, Xin Liu(Cliff)" 
+    right: 
+      - icon: github
+        href: https://github.com/xinliu97
+      - icon: linkedin
+        href: https://www.linkedin.com/in/xin-liu-97/
   title: "Evil-detector"
+  repo-url: https://github.com/xinliu97/evil-detector
+  repo-actions: [issue, edit]
   navbar:
+    background: secondary
     left:
       - href: index.ipynb
         text: Introduction
       - href: references.ipynb
         text: References
   favicon: images/favicon.png
+  reader-mode: true
 
 format:
   html:

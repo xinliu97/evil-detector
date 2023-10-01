@@ -32,20 +32,27 @@
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "About this site"
+    "text": "Naive Bayes Approach for Website Classification. Link\n\n这篇文章主要是讲了如何用朴素贝叶斯算法来对网站进行分类。\n\nDetecting mailcious urls using lexical analysis Link\n\n这篇文章主要是讲了如何用词法分析来对网站进行分类。利用的特征是URL的语义特征。\n\nPhishing Website Detection With Semantic Features Based on Machine Learning Classifiers:A Comparative StudyLink\nFeature Selection for Phishing Website Classification Link\nSwarm Intelligence Approaches for Parameter Setting of Deep Learning Neural Network: Case Study on Phishing Websites ClassificationLink\n\n3-5 从URl和网站的内容中提取特征，讲了特征如何选取。\n\n\n\n\n\n\nWeb page classification: Features and algorithms Link\n\nWeb classification 开山鼻祖！明天读完更新这部分内容。\n\nSemi-supervised multi-view graph convolutional networks with application to webpage classificationLink\n\n这篇文章用了semi-supervised multi-view graph convolutional networks来对网站进行分类。效果非常好，但是需要大量已经分类好的数据。\n\n\n\n\n\n\nWhat makes a “bad” ad? user perceptions of problematic online advertising.\n\n这篇文章主要定义了什么是“bad”ad，以及用户对于bad ad的看法。我们在定义危险网站的时候可以参考这篇文章的定义。在分析危险网站的时候，可以参考这篇文章的考量点。Link\n\nOnline tracking: A 1-million-site measurement and analysis.\n\n学习如何分析Trackers. 借助这个工具可以分析网站的trackers. Link Code\n\nDark Web Illegal Activities Crawling and Classifying Using Data Mining Techniques\n\n这篇文章主要是讲了如何用数据挖掘的方法来对暗网进行分类。叙述了暗网的定义。Link"
   },
   {
-    "objectID": "references.html#reference",
-    "href": "references.html#reference",
+    "objectID": "references.html#feature-selection.",
+    "href": "references.html#feature-selection.",
     "title": "References",
-    "section": "Reference",
-    "text": "Reference"
+    "section": "",
+    "text": "Naive Bayes Approach for Website Classification. Link\n\n这篇文章主要是讲了如何用朴素贝叶斯算法来对网站进行分类。\n\nDetecting mailcious urls using lexical analysis Link\n\n这篇文章主要是讲了如何用词法分析来对网站进行分类。利用的特征是URL的语义特征。\n\nPhishing Website Detection With Semantic Features Based on Machine Learning Classifiers:A Comparative StudyLink\nFeature Selection for Phishing Website Classification Link\nSwarm Intelligence Approaches for Parameter Setting of Deep Learning Neural Network: Case Study on Phishing Websites ClassificationLink\n\n3-5 从URl和网站的内容中提取特征，讲了特征如何选取。"
   },
   {
-    "objectID": "references.html#data-set",
-    "href": "references.html#data-set",
+    "objectID": "references.html#website-classification",
+    "href": "references.html#website-classification",
     "title": "References",
-    "section": "Data Set",
-    "text": "Data Set\n\nWebKB DataSet:\n-WebKB dataset contains 1051 webpages collected from four universities. These webpages are categorized into the course class and the non-course class. The first class contains 230 pages and the other class consists of the remaining 821 pages. In WebKB, page is characterized by two views, i.e., the page view and the link view. The page view contains the textual content on the page, and the link view contains the hyperlinks pointing to the page.\nAD DataSet:\n-AD dataset contains 3279 samples from two categories, i.e., advertisement class and the non-advertisement class, which are collected from the UCI machine learning repository.\nISCX-URL2016\n-This dataset contains over 110,000 urls. And devide those url into 5 categories: benign, phishing, spam, defacement, malware. We will use this dataset as our training dataset."
+    "section": "",
+    "text": "Web page classification: Features and algorithms Link\n\nWeb classification 开山鼻祖！明天读完更新这部分内容。\n\nSemi-supervised multi-view graph convolutional networks with application to webpage classificationLink\n\n这篇文章用了semi-supervised multi-view graph convolutional networks来对网站进行分类。效果非常好，但是需要大量已经分类好的数据。"
+  },
+  {
+    "objectID": "references.html#characterizing-the-dangerous-web",
+    "href": "references.html#characterizing-the-dangerous-web",
+    "title": "References",
+    "section": "",
+    "text": "What makes a “bad” ad? user perceptions of problematic online advertising.\n\n这篇文章主要定义了什么是“bad”ad，以及用户对于bad ad的看法。我们在定义危险网站的时候可以参考这篇文章的定义。在分析危险网站的时候，可以参考这篇文章的考量点。Link\n\nOnline tracking: A 1-million-site measurement and analysis.\n\n学习如何分析Trackers. 借助这个工具可以分析网站的trackers. Link Code\n\nDark Web Illegal Activities Crawling and Classifying Using Data Mining Techniques\n\n这篇文章主要是讲了如何用数据挖掘的方法来对暗网进行分类。叙述了暗网的定义。Link"
   }
 ]
