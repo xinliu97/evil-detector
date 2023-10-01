@@ -1,0 +1,30 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "Topic Summary\nIn this project I aim to develop a generalizable novel methodology for identifying website list in a target category. And I will use “danguage” as an example to demonstrate my methodology. Finally I will analyze the characteristics of dangerous websites via calsual inference.\nTo be more specific, I will answer the following questions in this project:\n\nHow to ascertain whether a website belongs to a specific website category without having a dataset? Not every classification comes with a “ground truth” available for our study. Therefore, I aim to develop a method to determine whether a website falls into a given category in the absence of “ground truth”.(i.e. Input: Category defination, website list. Output: Website which belongs to this category).\n\nCase study: How to identify dangerous websites? I will use “dangerous websites” as an example to demonstrate my methodology. I will develop a method to identify dangerous websites and analyze the characteristics of dangerous websites via calsual inference(Not sure which method for this part).\n\n\nIn this projcet I aim to create a list of dangerous websites and conduct a feature analysis on the websites in this list. I want to determine what kinds of websites are more likely to be considered dangerous, what characteristics dangerous websites have, and observe the trackers and advertisements on these websites. I wish to understand how to identify dangerous websites and whether we can predict dangerous websites. I believe that dangerous websites are a collection of certain types of websites. Through this work, we could better identify dangerous websites. Zeng[^1] proposed how to identify a bad advertisement in 2021, which provided ideas for my work. Englehardt and others analyzed the security of popular websites in 2016[^2], but no one has analyzed a large scale of specific types of websites, so my work should be meaningful.\nThis project’s contribution will be:\n\nDevelop a generalizable novel methodology for identifying website list in a target category.\nAnalyze the characteristics of dangerous websites via calsual inference.\n\n\n\nProcess\n\n1.Collect a list of websites and the data we want to use.\nNow we use data from ISCX-URL2016\nAccording to the reference we can use the following features to identify the category of a website:\n\n\n\n\n\n\n\n\nFeature ID\nVariable Name\nVariable Description\n\n\n\n\n1\nIP_Address_Usage\nIndicates whether the IP address is used as the URL.\n\n\n2\nLong_URL\nReflects if the URL is unusually long to hide suspicious parts.\n\n\n3\nAt_Symbol_In_URL\nDenotes the presence of ‘@’ symbol in the URL.\n\n\n4\nDomain_Prefix_Suffix\nPresence of prefix or suffix in the domain.\n\n\n5\nSub_Domain_Count\nNumber of sub-domains and multi sub-domains.\n\n\n6\nRequest_URL\nThe URL which is requested.\n\n\n7\nAnchor_URL\nThe URL of anchor links in the webpage.\n\n\n8\nAbnormal_URL\nIdentifies if the URL structure is abnormal.\n\n\n9\nLinks_In_Tags\nNumber of links present within tags (like &lt;a&gt;, &lt;img&gt; etc.).\n\n\n10\nWebpage_Title\nThe title of the webpage.\n\n\n11\nMeta_Description\nDescription of the webpage provided in meta tags (if available).\n\n\n12\nRedirect_Page\nIndicates whether the webpage redirects to another page.\n\n\n13\nActive_Content_Presence\nPresence of active content like JavaScript, Flash.\n\n\n14\nTechnology_Stack_Info\nInformation on the technology stack used, analyzed from HTTP headers or page content.\n\n\n15\nHTTP_Header_Info\nInformation provided in the HTTP headers of the webpage.\n\n\n16\nPrivacy_Policy_Presence\nIndicates the presence of Privacy Policy/Terms of Service through text analysis.\n\n\n17\nMobile_Responsiveness\nIndicates whether the webpage is designed responsively for mobile devices.\n\n\n18\nExternal_Links_Count\nNumber of external links present on the webpage by analyzing &lt;a&gt; tags.\n\n\n\nFor fetching the features above, we write a class WebScraper to gethering those data."
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "references.html#reference",
+    "href": "references.html#reference",
+    "title": "References",
+    "section": "Reference",
+    "text": "Reference"
+  },
+  {
+    "objectID": "references.html#data-set",
+    "href": "references.html#data-set",
+    "title": "References",
+    "section": "Data Set",
+    "text": "Data Set\n\nWebKB DataSet:\n-WebKB dataset contains 1051 webpages collected from four universities. These webpages are categorized into the course class and the non-course class. The first class contains 230 pages and the other class consists of the remaining 821 pages. In WebKB, page is characterized by two views, i.e., the page view and the link view. The page view contains the textual content on the page, and the link view contains the hyperlinks pointing to the page.\nAD DataSet:\n-AD dataset contains 3279 samples from two categories, i.e., advertisement class and the non-advertisement class, which are collected from the UCI machine learning repository.\nISCX-URL2016\n-This dataset contains over 110,000 urls. And devide those url into 5 categories: benign, phishing, spam, defacement, malware. We will use this dataset as our training dataset."
+  }
+]
