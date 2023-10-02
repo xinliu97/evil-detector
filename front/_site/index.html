@@ -60,6 +60,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="styles.css">
@@ -113,7 +116,11 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#topic-summary" id="toc-topic-summary" class="nav-link active" data-scroll-target="#topic-summary">Topic Summary</a></li>
   <li><a href="#roadmap" id="toc-roadmap" class="nav-link" data-scroll-target="#roadmap">Roadmap:</a></li>
-  <li><a href="#process" id="toc-process" class="nav-link" data-scroll-target="#process">Process</a></li>
+  <li><a href="#process" id="toc-process" class="nav-link" data-scroll-target="#process">Process</a>
+  <ul class="collapse">
+  <li><a href="#collect-a-list-of-websites-and-the-data-we-want-to-use." id="toc-collect-a-list-of-websites-and-the-data-we-want-to-use." class="nav-link" data-scroll-target="#collect-a-list-of-websites-and-the-data-we-want-to-use.">1.Collect a list of websites and the data we want to use.</a></li>
+  <li><a href="#preprocessing-the-data." id="toc-preprocessing-the-data." class="nav-link" data-scroll-target="#preprocessing-the-data.">Preprocessing the data.</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/xinliu97/evil-detector/issues/new" class="toc-action">Report an issue</a></p><p><a href="https://github.dev/xinliu97/evil-detector/blob/main/index.ipynb" class="toc-action">Edit this page</a></p></div></div></nav>
     </div>
@@ -143,16 +150,16 @@ ul.task-list li input[type="checkbox"] {
 <p>To be more specific, I will answer the following questions in this project:</p>
 <ul>
 <li><ol type="1">
-<li><strong><em>How to ascertain whether a website belongs to a specific website category without having a dataset?</em></strong> Not every classification comes with a “ground truth” available for our study. Therefore, I aim to develop a method to determine whether a website falls into a given category in the absence of “ground truth”.(i.e.&nbsp;Input: Category defination, website list. Output: Website which belongs to this category). We will use “dangerous website” as an example.</li>
+<li><strong><em>How to ascertain whether a website belongs to a specific website category without having a dataset?</em></strong> Not every classification comes with a “ground truth” available for our study. Therefore, I aim to develop a method to determine whether a website falls into a given category in the absence of “ground truth”.(i.e.&nbsp;Input: Category defination, website list. Output: Website which belongs to this category).</li>
 </ol></li>
 <li><ol start="2" type="1">
-<li><strong><em>Identifying and characterizing “dangerous” websites:</em></strong> What specifc kinds of content and tactics in website cause the websites dangerous? In other words, which ads do people dislike (or like)?</li>
+<li><strong><em>Identifying and characterizing “dangerous” websites(Or AD website):</em></strong> What specifc kinds of content and tactics in website cause the websites dangerous? In other word, what are the characteristics of dangerous websites have in common? We will use “dangerous website” as an example.</li>
 </ol></li>
 </ul>
 <p>This project’s contribution will be:</p>
 <ol type="1">
-<li><p>Develop a generalizable novel methodology for identifying website list in a target category without ground truth.</p></li>
-<li><p>Analyze the characteristics of dangerous websites via calsual inference.</p></li>
+<li><p>Develop a generalizable novel methodology for identifying website list in a target category without ground truth.(We will use “Whether a website is dangerous” as an example. Or we can use “Whether a website is a ad website” as an example.)</p></li>
+<li><p>Analyze the characteristics of dangerous websites via calsual inference.(Or other techniques, not sure yet.)</p></li>
 </ol>
 </section>
 <section id="roadmap" class="level2">
@@ -177,12 +184,54 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li>Identifying and characterizing “dangerous” websites: Initially I will use causal inference to analyze the characteristics of dangerous websites. Crawling the ad, tracker and script information of the website, and then use causal inference to analyze the characteristics of dangerous websites.(<strong><em>NEED TO READ MORE PAPER.</em></strong>)</li>
 </ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div>
+<pre class="mermaid mermaid-js">flowchart TB
+    FEAT(Features) --&gt; CRAWLAR[Crawlar]
+    URL_LIST(Website URL List) --&gt; CRAWLAR
+    CRAWLAR --&gt; FEATURE_DATA(Website Features List)
+    FEATURE_DATA --&gt; TEACHER[Teacher Model]
+  subgraph border[ ]
+    style border fill:#FFFFFF, stroke-dasharray: 5, 5;
+    TEACHER
+    TEACHER --&gt; D[Psudo_labdel]
+    D --&gt; E[Student Model]
+    E --&gt; F(Train &amp; Test)
+    F --&gt; ERROR(Error V1)
+    I[Strong Label] --&gt; F
+  end
+    TEACHER --&gt; TEACHER_PROFORMANCE((Model Proformance))
+    WEB_KB_DATASET(Web KB Dataset) --&gt; TEACHER_PROFORMANCE
+    ERROR -. "finetune" .-&gt; TEACHER
+    D -. "manually review" .-&gt; RAEL_DANGEROUS((Dangerous website))
+    style FEAT fill:#d3d3d3
+    style D fill:#d3d3d3
+    style I fill:#d3d3d3
+    style WEB_KB_DATASET fill:#d3d3d3
+    style TEACHER_PROFORMANCE fill:#a5a5a5
+    style RAEL_DANGEROUS fill:#a5a5a5
+
+</pre>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="process" class="level2">
 <h2 class="anchored" data-anchor-id="process">Process</h2>
-<section id="collect-a-list-of-websites-and-the-data-we-want-to-use." class="level4">
-<h4 class="anchored" data-anchor-id="collect-a-list-of-websites-and-the-data-we-want-to-use.">1.Collect a list of websites and the data we want to use.</h4>
+<section id="collect-a-list-of-websites-and-the-data-we-want-to-use." class="level3">
+<h3 class="anchored" data-anchor-id="collect-a-list-of-websites-and-the-data-we-want-to-use.">1.Collect a list of websites and the data we want to use.</h3>
 <p>Now we use data from <a href="https://www.unb.ca/cic/datasets/url-2016.html">ISCX-URL2016</a></p>
+<p>In website classification problem, we have 4 types of features to classify a website:</p>
+<ol type="1">
+<li><p>URL features: URL features are the features that can be extracted from the URL of the website. For example, the length of the URL, the presence of special characters, the presence of an IP address, etc.</p></li>
+<li><p>On page features: On page features are the features that can be extracted from the content of the website. For example, the presence of certain keywords, the presence of certain HTML tags, etc.</p></li>
+<li><p>JavaScript features: JavaScript features are the features that can be extracted from the JavaScript code of the website. For example, the presence of certain keywords, the presence of certain functions, etc.</p></li>
+<li><p>Connection features: Connection features are other website that have a connection with the website. (<strong><em>Increase computational complexity badly, do not use</em></strong>)</p></li>
+<li><p>User features: User features are the features that can be extracted from the user of the website. For example, the location of the user, the browser used by the user, etc. (<strong><em>Do not do research on this feature. But will use in future</em></strong>)</p></li>
+</ol>
 <p>According to the reference we can use the following features to identify the category of a website:</p>
 <table class="table">
 <colgroup>
@@ -291,6 +340,12 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 <p>For fetching the features above, we write a class <a href="https://github.com/xinliu97/evil-detector/blob/main/evil-detector-python/WebScraper.py">WebScraper</a> to gethering those data.</p>
+</section>
+<section id="preprocessing-the-data." class="level3">
+<h3 class="anchored" data-anchor-id="preprocessing-the-data.">Preprocessing the data.</h3>
+<ol type="1">
+<li>Tokenize the text data in features.</li>
+</ol>
 
 
 </section>
